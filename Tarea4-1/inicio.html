@@ -11,62 +11,69 @@
 </head>
 
 <body>
-    <form name="FormularioCharlie">
+    <form name="FormularioCharlie" onsubmit="registro(this, event)">
         <div class="container m-5">
             <div class="card mb-3" style="max-width: 300px;">
                 <div class="card-header">Registro</div>
                 <div class="card-body">
-                    <h5 id="titulo_paso" class="card-title">Register</h5>
+                    <h5 id="titulo_paso" class=""></h5>
                     <!--paso áe pag inicio-->
                     <div id="pasoInicio">
                         <div class="mb-3">
-                            <label class="form-label">Nombre</label>
-                            <input type="text" name="nombre" class="form-control">
+                            <label class="form-label">Correo</label>
+                            <input type="text" name="correoI" class="form-control">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Contraseña</label>
-                            <input type="password" name="contrania" class="form-control">
+                            <input type="password" name="passI" class="form-control">
                         </div>
 
-                        <a class="btn btn-primary">Login</a>
-                        <a class="btn btn-primary">Registrarse</a>
+                        <a class="btn btn-primary" id="Iniciar" onclick="inicio_sesion()">Inicie sesion</a>
+                        <a class="btn btn-primary" onclick="mostrarPaso1Registro()">Registrarse</a>
                     </div>
                     <!--paso 1 de registro-->
-                    <div id="paso1deRegistro" class="d-none">
+                    <div id="paso1Registro" class="d-none">
                         <div class="mb-3">
                             <label class="form-label">Correo</label>
-                            <input type="email" class="form-control" name="correo" required>
+                            <input type="email" class="form-control " name="correo" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Contraseña</label>
-                            <input type="password" class="form-control" name="pass" required>
+                            <input type="password" class="form-control " name="pass" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Contraseña Confirmación</label>
-                            <input type="password" class="form-control" name="passc">
+                            <input type="password" class="form-control" oninput="validarPass()" name="passc">
                         </div>
+                        <a class="btn btn-primary" onclick="mostrarPaso2Registro()">Siguiente</a>
                     </div>
 
                     <!--paso 2 de registro-->
-                    <div id="paso2deRegistro" class="d-none">
+                    <div id="paso2Registro" class="d-none">
                         <div class="mb-3">
-                            <label class="form-label">Nombre Completp</label>
+                            <label class="form-label">Nombre Completo</label>
                             <input type="text" class="form-control" name="nombre" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Identidad</label>
-                            <input type="text" class="form control" name="identidad" required>
+                            <input type="text" class="form control" name="identidad" onchange="departamentremove()" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-control">Departamento</label>
-                            <input type="text" class="form control" disabled required>
+                            <label class="form-label">Departamento</label>
+                            <input type="text" class="form control" name="departamento" disabled required>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" required>
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Aceptar terminos y condiciones
+                                  </label>
+                            </div>
                         </div>
+                        <button type="submit" class="btn btn-primary" onclick="mostrar_inicio()">Finalizar</button>
                     </div>
 
                 </div>
-                <div class="card-footer">
-                    <a class="btn btn-primary d-none" id="btn_siguiente" onclick="mostrar_paso_2(this)">Siguiente</a>
-                    <button type="submit" class="btn btn-success d-none" id="btn_registrar">Registrar</button>
+                
+                   
                 </div>
             </div>
         </div>
